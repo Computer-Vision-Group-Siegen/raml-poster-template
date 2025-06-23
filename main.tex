@@ -1,0 +1,287 @@
+% RAML Poster Template, adapted from the
+% unofficial UChicago CS Poster Template
+% v1.1.0 released September 8, 2022
+% https://github.com/k4rtik/uchicago-poster
+% a fork of https://github.com/anishathalye/gemini
+
+\documentclass[final]{beamer}
+
+% ====================
+% Packages
+% ====================
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+% A1 Size: 84.1 x 59.4 cm (H x B)
+\usepackage[size=custom,width=59.4,height=84.1,scale=1.0]{beamerposter}
+\usetheme{gemini}
+\usecolortheme{usiegen}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{doi}
+\usepackage[numbers, semicolon]{natbib}
+\usepackage[patch=none]{microtype}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{anyfontsize}
+\usepackage{subfig}
+\usepackage{comment}
+\usepackage{svg}
+\usepackage[flushleft]{threeparttable}
+\usepackage{svg}
+\usepackage{xcolor}
+\usepackage{ifthen}
+\pdfstringdefDisableCommands{%
+\def\translate#1{#1}%
+}
+\makeatletter
+\def\Year#1{%
+  \def\yy@##1##2##3##4;{##3##4}%
+  \expandafter\yy@#1;
+}
+\makeatother
+
+% ====================
+% Lengths
+% ====================
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+
+\newlength{\singlesepwidth}
+\newlength{\singlecolwidth}
+
+\setlength{\sepwidth}{0.016\paperwidth}
+\setlength{\colwidth}{0.475\paperwidth}
+\setlength{\singlecolwidth}{0.968\paperwidth}
+
+
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+% ====================
+% Title
+% ====================
+
+\title{An Example Title}
+
+% For longer Titles, you may have to add a linebreak 
+%\title{This is a very long title \\ containing a line break}
+
+\author{First Author$^{1}$ \quad Second Author$^{2}$}
+\institute[shortinst]{\small{$^1$ First Affiliation  \quad $^2$ Second Affiliation}%
+}
+
+% ====================
+% Footer
+% ====================
+
+\footercontent{
+  %\href{https://google.com}{www.example.webpage.com} % Enable webpage if needed.
+  \hfill%
+  Recent Advances in Machine Learning \the\year
+  \hfill%
+  %\href{mailto:author@example.com}{author@example.com} % State the corresponding author email if needed.
+  }
+% ====================
+% Logo (Leave as is)
+% ====================
+
+\logoleft{\includegraphics[width=340px]{logos/UNIS-Dachmarke_weiss.pdf}}
+\logoright{\includesvg[height=200px]{logos/raml_inverted_text_to_path.svg}}
+
+% ====================
+% Body
+% ====================
+% Choose block styles as needed, but keep the 2 column format.
+\begin{document}
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+\begin{column}{\colwidth}
+   \begin{block}{Normal Block}
+
+                This is highly motivating because of:
+                \begin{itemize}
+                    \item A \cite{lowry1951protein}
+                    \item B \cite{laemmli1970cleavage}
+                    \item C \cite{bradford1976rapid}
+                \end{itemize}%
+                
+
+                \begin{figure}[width=0.66\textwidth]
+                    \centering
+                    \subfloat[Example Image A]{%
+                    \label{fig:img_a}%
+                    \includegraphics[width=0.45\textwidth]{example-image-a}}\qquad
+                    \subfloat[Example Image B]{%
+                    \label{fig:img_b}%
+                    \includegraphics[width=0.45\textwidth]{example-image-b}}
+                    \caption{Two example images.}
+                    \label{fig:images}
+                \end{figure}
+                
+    \begin{alertblock}{Important Block}
+        \textbf{Important Subheading}
+                
+        If A then B and C, but not D.
+
+        \textbf{Second important thing}
+
+        You see A because B implies C.
+    \end{alertblock}        
+    \end{block}
+
+
+    \begin{block}{Fusce aliquam magna velit}
+
+    Et rutrum ex euismod vel. Pellentesque ultricies, velit in fermentum
+    vestibulum, lectus nisi pretium nibh, sit amet aliquam lectus augue vel
+    velit. Suspendisse rhoncus massa porttitor augue feugiat molestie. Sed
+    molestie ut orci nec malesuada. Sed ultricies feugiat est fringilla
+    posuere.
+
+    \begin{figure}
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+            scale only axis,
+            no markers,
+            domain=0:2*pi,
+            samples=100,
+            axis lines=center,
+            axis line style={-},
+            ticks=none]
+          \addplot[red] {sin(deg(x))};
+          \addplot[blue] {cos(deg(x))};
+        \end{axis}
+      \end{tikzpicture}
+      \caption{Another figure caption.}
+    \end{figure}
+
+  \end{block}
+
+  \begin{block}{Nam cursus consequat egestas}
+
+    Nulla eget sem quam. Ut aliquam volutpat nisi vestibulum convallis. Nunc a
+    lectus et eros facilisis hendrerit eu non urna. Interdum et malesuada fames
+    ac ante \textit{ipsum primis} in faucibus. Etiam sit amet velit eget sem
+    euismod tristique. Praesent enim erat, porta vel mattis sed, pharetra sed
+    ipsum. Morbi commodo condimentum massa, \textit{tempus venenatis} massa
+    hendrerit quis. Maecenas sed porta est. Praesent mollis interdum lectus,
+    sit amet sollicitudin risus tincidunt non.
+
+    Etiam sit amet tempus lorem, aliquet condimentum velit. Donec et nibh
+    consequat, sagittis ex eget, dictum orci. Etiam quis semper ante. Ut eu
+    mauris purus. Proin nec consectetur ligula. Mauris pretium molestie
+    ullamcorper. 
+
+    \begin{itemize}
+      \item \textbf{Sed consequat} id ante vel efficitur. Praesent congue massa
+        sed est scelerisque, elementum mollis augue iaculis.
+        \begin{itemize}
+          \item In sed est finibus, vulputate
+            nunc gravida, pulvinar lorem. In maximus nunc dolor, sed auctor eros
+            porttitor quis.
+        \end{itemize}
+      \item \textbf{Sed luctus, elit sit amet} dictum maximus, diam dolor
+        faucibus purus, sed lobortis justo erat id turpis.
+    \end{itemize}
+
+  \end{block}
+    
+\end{column}
+
+\separatorcolumn
+
+\begin{column}{\colwidth}
+
+    \begin{exampleblock}{A highlighted block containing some math}
+
+    A different kind of highlighted block.
+
+    $$
+    \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
+    $$
+
+    Interdum et malesuada fames $\{1, 4, 9, \ldots\}$ ac ante ipsum primis in
+    faucibus. Cras eleifend dolor eu nulla suscipit suscipit. Sed lobortis non
+    felis id vulputate.
+
+    \heading{A heading inside a block}
+
+    Praesent consectetur mi $x^2 + y^2$ metus, nec vestibulum justo viverra
+    nec. Proin eget nulla pretium, egestas magna aliquam, mollis neque. Vivamus
+    dictum $\mathbf{u}^\intercal\mathbf{v}$ sagittis odio, vel porta erat
+    congue sed. Maecenas ut dolor quis arcu auctor porttitor.
+
+    \heading{Another heading inside a block}
+
+    Sed augue erat, scelerisque a purus ultricies, placerat porttitor neque.
+    Donec $P(y \mid x)$ fermentum consectetur $\nabla_x P(y \mid x)$ sapien
+    sagittis egestas. Duis eget leo euismod nunc viverra imperdiet nec id
+    justo.
+
+  \end{exampleblock}
+
+    \begin{block}{Nullam vel erat at velit convallis laoreet}
+
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+    inceptos himenaeos. Phasellus libero enim, gravida sed erat sit amet,
+    scelerisque congue diam. Fusce dapibus dui ut augue pulvinar iaculis.
+
+    \begin{table}
+      \centering
+      \caption{A table caption.}
+      \begin{tabular}{l r r c}
+        \toprule
+        \textbf{First column} & \textbf{Second column} & \textbf{Third column} & \textbf{Fourth} \\
+        \midrule
+        Foo & 13.37 & 384,394 & $\alpha$ \\
+        Bar & 2.17 & 1,392 & $\beta$ \\
+        Baz & 3.14 & 83,742 & $\delta$ \\
+        Qux & 7.59 & 974 & $\gamma$ \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+    Donec quis posuere ligula. Nunc feugiat elit a mi malesuada consequat. Sed
+    imperdiet augue ac nibh aliquet tristique. Aenean eu tortor vulputate,
+    eleifend lorem in, dictum urna. Proin auctor ante in augue tincidunt
+    tempor. Proin pellentesque vulputate odio, ac gravida nulla posuere
+    efficitur. Aenean at velit vel dolor blandit molestie. Mauris laoreet
+    commodo quam, non luctus nibh ullamcorper in. Class aptent taciti sociosqu
+    ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+    Nulla varius finibus volutpat. Mauris molestie lorem tincidunt, iaculis
+    libero at, gravida ante. Phasellus at felis eu neque suscipit suscipit.
+    Integer ullamcorper, dui nec pretium ornare, urna dolor consequat libero,
+    in feugiat elit lorem euismod lacus. Pellentesque sit amet dolor mollis,
+    auctor urna non, tempus sem.
+
+  \end{block}
+
+  \begin{block}{References}
+    \nocite{*}
+    \footnotesize{\bibliographystyle{unsrtnat}\bibliography{poster}}
+  \end{block}
+
+% ====================
+% Acknowledgements (optional) - declare financal support or gratitude
+% ====================
+  
+  \vspace{-5mm}
+  We acknowledge the ABC support for DEF.
+
+\end{column}
+
+\separatorcolumn
+\end{columns}
+\end{frame}
+
+\end{document}
